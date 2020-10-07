@@ -13,9 +13,17 @@ and open the template in the editor.
             function onDeviceReady() {
                 window.open()
             }
-
+            /* Vibrate in a pattern of four pairs of integers, indicating on and off durations.
+             */
             function vibrationDevice() {
                 Device.vibrate(1000, 500, 1000, 500);
+            }
+
+            /* The device will beep for a duration of 500 milliseconds
+             *  with a 50 millisecond trailing silence. 
+             */
+            function confirmSound() {
+                Device.beep(200, 500, 50);
             }
 
         </script> 
@@ -25,6 +33,9 @@ and open the template in the editor.
     <body>
         <div>
             <button onclick="vibrationDevice();">Vibration Device</button>
+        </div>
+        <div>
+            <button onclick="confirmSound();">Confirm Sound</button>
         </div>
     </body>
 </html>
