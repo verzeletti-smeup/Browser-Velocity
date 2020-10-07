@@ -6,8 +6,8 @@ and open the template in the editor.
 -->
 <html>
     <head>
-        <title>TEST CON BROWSER VELOCITY</title>
-        <script type="text/javascript" charset="utf-8">
+        <title>TEST CON BROWSER VELOCITY 2</title>
+        <script type="text/javascript" language="javascript" charset="utf-8">
 
             document.addEventListener("deviceready", onDeviceReady, false);
             function onDeviceReady() {
@@ -23,7 +23,8 @@ and open the template in the editor.
              *  with a 50 millisecond trailing silence. 
              */
             function confirmSound() {
-                Device.beep(200, 500, 50);
+                var Device = new Device();
+                device.beep(200, 500, 50);
             }
 
         </script> 
@@ -36,6 +37,16 @@ and open the template in the editor.
         </div>
         <div>
             <button onclick="confirmSound();">Confirm Sound</button>
+        </div>
+        <div>
+            <p>
+                Click <a href="wls:Device.beep(200,500,50)">here</a> to launch the "Device.beep" API.
+            </p>
+        </div>
+        <div>
+            <p>
+                Click <a href="wls:Device.vibrate(1000, 500, 1000, 500)">here</a> to launch the "Device.vibrate" API.
+            </p>
         </div>
     </body>
 </html>
