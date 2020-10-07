@@ -1,2 +1,3 @@
 # Browser-Velocity
-Test with browser Ivanti Velocity.
+
+test project on industrial velocity browser
