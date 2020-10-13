@@ -5,48 +5,173 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>TEST CON BROWSER VELOCITY 2</title>
-        <script type="text/javascript" language="javascript" charset="utf-8">
+<head>
+<title>TEST CON BROWSER VELOCITY</title>
+<script type="text/javascript" charset="utf-8">
+	document.addEventListener("deviceready", onDeviceReady, false);
+	function onDeviceReady() {
+		window.open()
+	}
 
-            document.addEventListener("deviceready", onDeviceReady, false);
-            function onDeviceReady() {
-                window.open()
-            }
-            /* Vibrate in a pattern of four pairs of integers, indicating on and off durations.
-             */
-            function vibrationDevice() {
-                Device.vibrate(1000, 500, 1000, 500);
-            }
+	function getPercent() {
+		window.location.href = "wls:getBatteryPerc()";
+	}
 
-            /* The device will beep for a duration of 500 milliseconds
-             *  with a 50 millisecond trailing silence. 
-             */
-            function confirmSound() {
-                var Device = new Device();
-                device.beep(200, 500, 50);
-            }
+	function getManufacturer() {
+		window.location.href = "wls:getManufacturer()";
+	}
 
-        </script> 
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <div>
-            <button onclick="vibrationDevice();">Vibration Device</button>
-        </div>
-        <div>
-            <button onclick="confirmSound();">Confirm Sound</button>
-        </div>
-        <div>
-            <p>
-                Click <a href="wls:Device.beep(200,500,50)">here</a> to launch the "Device.beep" API.
-            </p>
-        </div>
-        <div>
-            <p>
-                Click <a href="wls:Device.vibrate(1000, 500, 1000, 500)">here</a> to launch the "Device.vibrate" API.
-            </p>
-        </div>
-    </body>
+	function beep1() {
+		window.location.href = "wls:myBeep_1()";
+	}
+
+	function beep2() {
+		window.location.href = "wls:myBeep_2()";
+	}
+
+	function replaceBeep(soundFile) {
+		window.location.href = "wls:replaceBeep('"+soundFile+"')";
+	}
+
+	function keyboardEnable(active) {
+		window.location.href = "wls:Keyboard.enabled("+active+")";
+	}
+
+	function keyboardVisible(visible) {
+		window.location.href = "wls:Keyboard.toggleVisible("+visible+")";
+	}
+
+	function scannerLaser(laser) {
+		window.location.href = "wls:Scanner.toggleLaser("+laser+")";
+	}
+
+	function voiceSpeak(text) {
+		window.location.href = "wls:Voice.speak('"+text+"')";
+	}
+	function setVolumeSpeak(volume) {
+		window.location.href = "wls:Voice.setVolume("+volume+")";
+	}
+	
+</script>
+
+<style>
+
+.buttonlink{
+	background-color:#44c767;
+	border-radius:28px;
+	border:1px solid #18ab29;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	padding:8px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+	width: 120px;
+}
+.buttonlink:hover{
+	background-color:#5cbf2a;
+}
+.buttonlink:active {
+	position:relative;
+	top:1px;
+}
+
+.chapter {
+    display: inline-block;
+	text-align: center;
+	vertical-align: top;
+}
+
+</style>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<div>
+
+		<div class="chapter" >
+			<div>
+				<p><b>Device actions</b></p>
+			</div>
+		
+			<div>
+				<button class="buttonlink" onclick="beep1();">Beep 1</button>
+			</div>
+		
+			<div>
+				<button class="buttonlink" onclick="beep2();">Beep 2</button>
+			</div>
+		
+			<div>
+				<button class="buttonlink" onclick="replaceBeep('beep.wav');">Beep.wav</button>
+			</div>
+		
+			<div>
+				<button class="buttonlink" onclick="replaceBeep('doh.wav');">Doh.wav</button>
+			</div>
+
+		</div>
+
+		<div class="chapter" >
+			<div>
+				<p><b>Device info</b></p>
+			</div>
+
+			<div>
+				<button class="buttonlink" onclick="getPercent();">Percentage</button>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="getManufacturer();">Manufacturer</button>
+			</div>
+		</div>	
+
+		<div class="chapter" >
+			<div>
+				<p><b>Key actions</b></p>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="keyboardVisible('true');">Key visible</button>
+			</div>
+
+			<div>
+				<button class="buttonlink" onclick="keyboardVisible('false');">Key invisible</button>
+			</div>
+		</div>	
+
+		<div class="chapter" >
+			<div>
+				<p><b>Scanner actions</b></p>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="scannerLaser('true');">Laser visible</button>
+			</div>
+		</div>	
+
+		<div class="chapter" >
+			<div>
+				<p><b>Voice actions</b></p>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="setVolumeSpeak('10');">Set volume 10 </button>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="setVolumeSpeak('50');">Set volume 50 </button>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="setVolumeSpeak('100');">Set volume 100 </button>
+			</div>
+			<div>
+				<button class="buttonlink" onclick="voiceSpeak('Hello world!, I am ivanti velocity browser');">Text speak</button>
+			</div>
+		</div>	
+
+
+	</div>
+
+
+
+</body>
 </html>
